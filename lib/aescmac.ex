@@ -99,7 +99,7 @@ defmodule Aescmac do
     _calc(m, {k, k1, k2}, @const_Zero)
   end
 
-  defp _calc(<<m::binary-size(@const_Bsize)>>, {k, k1, k2}, x) do
+  defp _calc(<<m::binary-size(@const_Bsize)>>, {k, k1, _k2}, x) do
     m = :crypto.exor(m, k1)
     y = :crypto.exor(m, x)
     :crypto.block_encrypt(:aes_ecb, k, y)
@@ -111,7 +111,7 @@ defmodule Aescmac do
     _calc(rest, {k, k1, k2}, x)
   end
 
-  defp _calc(<<m::binary>>, {k, k1, k2}, x) do
+  defp _calc(<<m::binary>>, {k, _k1, k2}, x) do
     padding_size = 128-bit_size(m)-1
     m = :crypto.exor(m <> <<1::1, 0::size(padding_size)>>, k2)
     y = :crypto.exor(m, x)
