@@ -7,7 +7,9 @@ defmodule Aescmac.Mixfile do
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps]
+     deps: deps(),
+     package: package()
+   ]
   end
 
   # Configuration for the OTP application
@@ -16,6 +18,18 @@ defmodule Aescmac.Mixfile do
   def application do
     [applications: [:logger]]
   end
+
+
+  defp package do
+  [
+    maintainers: ["Niklas Klein"],
+    description: "AES CMAC (rfc 4493) in Elixir",
+    licenses: ["MIT"],
+    links: %{"GitHub" => "https://github.com/kleinernik/elixir-aes-cmac"},
+    files: ["config", "lib", "test", "mix.exs", "README*", "LICENSE*", "rfc4493.txt"],
+  ]
+  end
+
 
   # Dependencies can be Hex packages:
   #
