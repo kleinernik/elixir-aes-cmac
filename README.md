@@ -1,3 +1,15 @@
+# Hit for users of OTP >= 20
+
+Since OTP 20 the AES-CMAC is in `:crypto`
+
+You can simply use for example:
+
+```elixir
+:crypto.cmac :"aes_cbc128", <<0x2b7e1516_28aed2a6_abf71588_09cf4f3c::128>>,<<0x6bc1bee2_2e409f96_e93d7e11_7393172a_ae2d8a57_1e03ac9c_9eb76fac_45af8e51_30c81c46_a35ce411::320>>
+```
+See in [Erlang sources](https://github.com/erlang/otp/blob/83e20c62057ebc1d8064bf57b01be560cd244e1d/lib/crypto/src/crypto.erl#L159)
+
+
 # Aescmac
 
 Implementation of [rfc4493](https://tools.ietf.org/html/rfc4493) in elixir using :crypto from erlang for aes.
