@@ -1,4 +1,4 @@
-# Hit for users of OTP >= 20
+# Hint for users of OTP >= 20
 
 Since OTP 20 the AES-CMAC is in `:crypto`
 
