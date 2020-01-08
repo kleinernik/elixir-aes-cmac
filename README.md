@@ -35,16 +35,16 @@ Docs can be found [at hexdocs.pm](https://hexdocs.pm/aescmac/).
 
   1. Add aescmac to your list of dependencies in `mix.exs`:
 
-    ```elixir
+```elixir
     def deps do
       [{:aescmac, "~> 0.0.1"}]
     end
-    ```
+```
 
   2. Ensure aescmac is started before your application:
 
-    ```elixir
+```elixir
     def application do
       [applications: [:aescmac]]
     end
-    ```
+```
